@@ -1,47 +1,42 @@
-import React from "react";
-
+import React, { useEffect, useState } from "react";
+// 48:40
 function HomePage() {
-  const skills = [
-    {
-      id: 1,
-      title: 'Hyber Text Markup Language(html)',
-      desc: "html is a  to tell about the browser which part of the website",
-      image: 'https://res.cloudinary.com/thewebmaster/image/upload/c_scale,f_auto,q_auto:best,w_516/images/html/html5.png'
-    },
-    {
-      id: 2,
-      title: "Cascoding style sheet (css)",
-      desc: " css is a style your website like it is also help dom to dyamic website",
-      image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRn_3XrhqPAmw148w6xtaWDat74vScZo-6sQl1juiygyg&s'
-    },
-    {
-      id: 3,
-      title: "Javascript",
-      desc: "javascript is a script languages and help to create a dynamic content",
-      image: 'https://1000logos.net/wp-content/uploads/2020/09/JavaScript-Logo.png'
-    }
-  ]
+  const [post, setPost] = useState([]);
 
-  const skillContent = skills.map(skill => {
+  useEffect(() => {
+    const getPostData = async () => {
+      const fetchUrl = await fetch("https://dummyjson.com/products");
+      const posts = await fetchUrl.json();
+      setPost(posts.products);
+    };
+    getPostData();
+  }, []);
+
+  const getDetail = post.map((post) => {
     return (
-      <div className="bg-white flex items-center gap-4 h-min mb-5 mx-auto w-10/12 p-5" key={skill.id}>
-        <img src={skill.image} alt="html" width="140px" />
+      <div className="bg-white p-10 flex gap-4 flex-wrap" key={`${post.id} ${post.title}`}>
+        <img src={post.images[0]} alt="" width={480} />
         <div>
-          <h1 className=" font-semibold text-2xl uppercase">{skill.title}</h1>
-          <p className="pt-3">{skill.desc}</p>
+          <h1 className="uppercase font-semibold">{post.title}</h1>
+          <p>{post.description}</p>
+          <div className="space-x-4 mt-4">
+            <span className="bg-green-500 px-3 py-1 text-white cursor-pointer">
+              Discount {post.discountPercentage}
+            </span>
+            <span className="bg-green-500 px-3 py-1 text-white cursor-pointer">
+              Price $ {post.price}
+            </span>
+          </div>
         </div>
       </div>
-    )
-  })
+    );
+  });
 
   return (
     <React.Fragment>
-      <div className=" bg-gray-200 min-h-screen">
-        <h1 className="text-center font-serif  text-2xl pt-4">Skills</h1>
-        {skillContent}
-      </div>
-    </React.Fragment >
-  )
+      <div className="bg-gray-100 min-h-screen">{getDetail}</div>
+    </React.Fragment>
+  );
 }
 
 export default HomePage;

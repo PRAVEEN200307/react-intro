@@ -30,12 +30,8 @@ const router = createBrowserRouter([
         path:'/contact',
         element: <Contact/>
       },
-      // {
-      //     path:'*',
-      //     element : <p>404 Page Not Found </p>
-      // }
     ],
-    errorElement: <ErrorPages/>
+    errorElement : <ErrorPages />
   }
 ]);
 
@@ -44,4 +40,3 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <RouterProvider router={router} />
   </React.StrictMode>,
 )
-// 32:56

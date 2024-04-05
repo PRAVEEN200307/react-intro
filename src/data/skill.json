@@ -1,0 +1,20 @@
+[
+    {
+      "id": 1,
+      "title": "Hyber Text Markup Language(html)",
+      "desc": "html is a  to tell about the browser which part of the website",
+      "image": "https://res.cloudinary.com/thewebmaster/image/upload/c_scale,f_auto,q_auto:best,w_516/images/html/html5.png"
+    },
+    {
+      "id": 2,
+      "title": "Cascoding style sheet (css)",
+      "desc": " css is a style your website like it is also help dom to dyamic website",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRn_3XrhqPAmw148w6xtaWDat74vScZo-6sQl1juiygyg&s"
+    },
+    {
+      "id": 3,
+      "title": "Javascript",
+      "desc": "javascript is a script languages and help to create a dynamic content",
+      "image": "https://1000logos.net/wp-content/uploads/2020/09/JavaScript-Logo.png"
+    }
+  ]
