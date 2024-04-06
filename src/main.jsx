@@ -8,6 +8,7 @@ import HomePage from './assets/pages/homepage.jsx'
 import GuestLayout from './assets/guestLayout/GuestLayout.jsx'
 import Contact from './assets/pages/Contact.jsx'
 import ErrorPages from './assets/pages/ErrorPages.jsx'
+import FollowersPage from './assets/pages/FolowersPage.jsx'
 
 const router = createBrowserRouter([
   {
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
         path:'/contact',
         element: <Contact/>
       },
+      {
+        path:'/followers',
+        element: <FollowersPage />
+      }
     ],
     errorElement : <ErrorPages />
   }
