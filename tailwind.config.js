@@ -7,6 +7,7 @@ export default {
   theme: {
     extend: {},
   },
+  // prefix:'tw-', while you are using tailWindcss
   plugins: [],
 }
 

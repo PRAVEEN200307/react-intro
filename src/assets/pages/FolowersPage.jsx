@@ -1,19 +1,19 @@
+import UserCard from "../components/userCard";
+import PropTypes from "prop-types";
+import FollowersDetail from "../../data/followers.json";
+
+
 const FollowersPage = () => {
   return (
     <div className=" bg-gray-200 min-h-screen grid grid-cols-3 gap-4 p-10">
-      {[1, 2, 3, 4, 5, 6, 7, 10].map((identify) => {
+      {FollowersDetail.map((team) => {
         return (
-          <div className="p-10 bg-white max-w-96">
-            <img
-              src="https://avatars.githubusercontent.com/u/139258660?v=4"
-              alt="mr.praveen kumar"
-              className="rounded-full w-60 mx-auto"
-            />
-            <div className="text-center">
-              <h1 className="text-2xl font-semibold">Praveen kumar</h1>
-              <small className="text-gray-600">Full Stack developer</small>
-            </div>
-          </div>
+          <UserCard
+            key={team.id}
+            name={team.name}
+            role="Junior Full stack Intern"
+            image={`${team.github}.png`}
+          />
         );
       })}
     </div>
@@ -21,3 +21,10 @@ const FollowersPage = () => {
 };
 
 export default FollowersPage;
+
+// it does'nt work
+FollowersPage.propTypes = {
+  name: PropTypes.string,
+  image: PropTypes.string,
+  role: PropTypes.string,
+};
