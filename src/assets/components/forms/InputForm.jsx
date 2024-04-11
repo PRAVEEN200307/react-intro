@@ -1,7 +1,17 @@
 import PropTypes from "prop-types";
 
-const InputForm = ({id,label,type,formName,placeHolder,handleOnchange,value,name,required}) => {
-
+const InputForm = ({
+  id,
+  label,
+  register,
+  type = "text",
+  formName,
+  placeHolder,
+  value,
+  name,
+  error,
+  required
+}) => {
   return (
     <div>
       <label htmlFor={formName} className="block mb-2">
@@ -14,9 +24,9 @@ const InputForm = ({id,label,type,formName,placeHolder,handleOnchange,value,name
         value={value}
         placeholder={placeHolder}
         className="bg-gray-200 block px-4 py-2 rounded outline-none w-full"
-        onChange={handleOnchange}
-        required={required}
+        {...register}
       />
+      {error && <small className="text-red-500">{error.message}</small>}
     </div>
   );
 };
@@ -26,10 +36,11 @@ InputForm.propTypes = {
   label: PropTypes.string,
   formName: PropTypes.string,
   placeHolder: PropTypes.string,
-  type : PropTypes.string,
-  handleOnchange : PropTypes.func,
-  value : PropTypes.string,
-  name : PropTypes.string,
+  type: PropTypes.string,
+  value: PropTypes.string,
+  name: PropTypes.string,
+  register: PropTypes.object,
+  error: PropTypes.object,
   required: PropTypes.bool
 };
 
