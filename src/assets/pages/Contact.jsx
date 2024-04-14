@@ -1,6 +1,5 @@
 import { useForm } from "react-hook-form";
 import InputForm from "../components/forms/InputForm";
-
 import InputTextArea from "../components/forms/InputTextArea";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -8,7 +7,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 const schema = z.object({
   name: z.string().min(3).max(20),
   email: z.string().email(),
-  userMessage: z.string().min(8).max(150)
+  userMessage: z.string().min(8).max(150),
 });
 
 function Contact() {
@@ -42,7 +41,7 @@ function Contact() {
               placeHolder="Enter a your Name"
               required
               register={register("name", {
-                required: "This name field required"
+              required: "This name field required",
                 // minLength:{
                 //   value:3,
                 //   message:"minimum 3 charater required"

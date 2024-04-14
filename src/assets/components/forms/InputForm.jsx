@@ -1,5 +1,4 @@
 import PropTypes from "prop-types";
-
 const InputForm = ({
   id,
   label,
@@ -10,12 +9,12 @@ const InputForm = ({
   value,
   name,
   error,
-  required
+  required,
 }) => {
   return (
     <div>
       <label htmlFor={formName} className="block mb-2">
-        {label} {required?<span className="text-red-600">*</span>:''}
+        {label} {required ? <span className="text-red-600">*</span> : ""}
       </label>
       <input
         type={type}
@@ -41,7 +40,7 @@ InputForm.propTypes = {
   name: PropTypes.string,
   register: PropTypes.object,
   error: PropTypes.object,
-  required: PropTypes.bool
+  required: PropTypes.bool,
 };
 
 export default InputForm;
